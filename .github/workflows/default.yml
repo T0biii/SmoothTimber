@@ -2,7 +2,11 @@ name: Build SmoothTimber
 
 on:
   push:
+    branches:
+      - legacy
   pull_request:
+    types: [opened, synchronize, reopened]
+
 
 jobs:
   compile:
