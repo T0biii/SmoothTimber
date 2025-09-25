@@ -2,10 +2,7 @@ name: Build SmoothTimber
 
 on:
   push:
-    branches:
-      - legacy
-  pull_request:
-    types: [opened, synchronize, reopened]
+
 
 
 jobs:
@@ -43,7 +40,7 @@ jobs:
     - name: Build and test project
       run: mvn clean verify
     - name: Upload Maven build artifact
-      if: github.event_name == 'push' && github.ref == 'refs/heads/legacy'
+      if: github.ref == 'refs/heads/legacy'
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 #v4.6.2
       with:
         name: SmoothTimber-Artifact
